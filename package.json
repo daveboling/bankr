@@ -1,0 +1,38 @@
+{
+  "name": "bankr",
+  "version": "0.0.0",
+  "description": "bankr =====",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "mocha tests/unit --recursive -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kadowki/bankr.git"
+  },
+  "author": "David D. Boling <daviddboling@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kadowki/bankr/issues"
+  },
+  "homepage": "https://github.com/kadowki/bankr",
+  "dependencies": {
+    "body-parser": "^1.6.2",
+    "express": "^4.8.2",
+    "jade": "^1.5.0",
+    "lodash": "^2.4.1",
+    "mongodb": "^1.4.8"
+  },
+  "devDependencies": {
+    "blanket": "^1.1.6",
+    "chai": "^1.9.1",
+    "coveralls": "^2.11.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "jshint-stylish": "^0.4.0",
+    "mocha": "^1.21.4",
+    "mocha-lcov-reporter": "0.0.1",
+    "morgan": "^1.2.2"
+  }
+}
