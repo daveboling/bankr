@@ -4,8 +4,8 @@
   "description": "bankr =====",
   "main": "app/index.js",
   "scripts": {
-    "test": "mocha tests/unit --recursive -R spec"
-  },
+  	"test": "mocha test --recursive -R spec"
+  }, 
   "repository": {
     "type": "git",
     "url": "https://github.com/kadowki/bankr.git"
