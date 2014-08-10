@@ -33,9 +33,8 @@ Transfer.prototype.create = function(transfer, cb){
   });
 };
 
-Transfer.findAll = function(query, cb){
-  var id = Mongo.ObjectID(query);
-  Transfer.collection.find({$or: [{fromId: query}, {toId: query}]}).toArray(function(err, obj){
+Transfer.findAll = function(query, cb){;
+  Transfer.collection.find({$or: [{fromId: query.toString()}, {toId: query.toString()}]}).toArray(function(err, obj){
     var transfers = obj.map(function(){
       return changeProto(obj);
     });

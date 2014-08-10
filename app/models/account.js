@@ -3,6 +3,7 @@
 var Mongo = require('mongodb');
 var _ = require('lodash');
 
+
 function Account(obj){
   this.name           = obj.name;
   this.color          = obj.color;

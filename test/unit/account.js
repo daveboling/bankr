@@ -4,6 +4,7 @@
 
 var expect = require('chai').expect;
 var Account  = require('../../app/models/account');
+var Transfer = require('../../app/models/transfer');
 var dbConnect = require('../../app/lib/mongodb');
 var Mongo = require('mongodb');
 var cp = require('child_process');
@@ -52,8 +53,11 @@ describe('Account', function(){
   describe('.display', function(){
     it('should display transfers and transactions to the screen', function(done){
       Account.display('53d01ddf4fbbd6de0b530020', function(account){
-        expect(account._id).to.be.instanceof(Mongo.ObjectID);
-        done();
+        Transfer.findAll(account._id, function(transfers){
+           expect(account._id).to.be.instanceof(Mongo.ObjectID);
+           expect(transfers.length).to.equal(2);
+           done();
+        });
       });
     });
 
