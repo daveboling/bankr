@@ -14,8 +14,6 @@ function Account(obj){
   this.transactions   = [];
 }
 
-
-//Getter for database collection
 Object.defineProperty(Account, 'collection', {
   get: function(){return global.mongodb.collection('accounts');}
 });
@@ -36,8 +34,9 @@ Account.prototype.newTransaction = function(trans, cb){
   }
 
   var transaction = {type: trans.type, amount: trans.amount, date: new Date(), id: this.transactions.length+1, fee: fee};
+
   this.transactions.push(transaction);
-  //will callback newTransaction when complete so it can finish
+
   Account.collection.update({_id:this._id}, {$push:{transactions:transaction}}, cb);
 
 };
@@ -48,12 +47,10 @@ Account.create = function(account, cb){
 };
 
 
-//Needs to have transfers added as well
 Account.display = function(query, cb){
   var id = Mongo.ObjectID(query);
   Account.collection.findOne({_id: id}, function(err, obj){
     var account = changeProto(obj);
-    //pre sort array in
     sortDateAscending(account.transactions);
     cb(account);
   });
@@ -73,7 +70,7 @@ Account.findById = function(query, cb){
 // HELPER FUNCTIONS
 function changeProto(obj){
   return _.create(Account.prototype, obj);
-};
+}
 
 function sortDateAscending(arr){
   arr.sort(function(a,b){

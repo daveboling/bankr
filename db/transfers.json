@@ -1,0 +1,2 @@
+{"_id":{"$oid":"53d01ddf4fbbd6de0b53f001"},"from":"Bob Smith","to":"Sara Smith","fee": 35,"amount": 900,"fromId":"53d01ddf4fbbd6de0b530020", "toId": "53d01ddf4fbbd6de0b530021"}
+{"_id":{"$oid":"53d01ddf4fbbd6de0b53f002"},"from":"Sara Smith","to":"Bob Smith","fee": 35,"amount": 200,"fromId":"53d01ddf4fbbd6de0b530021", "toId": "53d01ddf4fbbd6de0b530020"}
