@@ -11,7 +11,7 @@ function Account(obj){
   this.photo          = obj.photo;
   this.balance        = parseFloat(obj.balance);
   this.accountType    = obj.accountType;
-  this.openDate       = new Date(obj.openDate);
+  this.openDate       = new Date();
   this.transactions   = [];
 }
 
@@ -45,6 +45,15 @@ Account.prototype.newTransaction = function(trans, cb){
 Account.create = function(account, cb){
   var newAccount  = account;
   Account.collection.save(newAccount, cb);
+};
+
+Account.all = function(cb){
+  Account.collection.find().toArray(function(err, obj){
+    var accounts = obj.map(function(o){
+      return changeProto(o);
+    });
+    cb(accounts);
+  });
 };
 
 

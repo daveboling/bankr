@@ -1,0 +1,63 @@
+nav {
+	margin: 0px auto;
+	width: 90%;
+	text-align: center;
+}
+
+nav ul {
+	list-style: none;
+}
+
+nav ul li {
+	padding-right: 30px;
+	display: inline-block;
+	font-size: 1.5em;
+}
+
+nav ul li a{
+	color: black;
+	text-decoration: none;
+}
+
+nav ul li a:hover {
+	background-color: black;
+	color: white;
+}
+
+h1, h2, h3, h4, h5 {
+	text-align: center;
+}
+
+
+form {
+	width: 90%;
+	margin: 0px auto;
+	display: block;
+	text-align: center;
+}
+
+form input {
+	display: block;
+	margin: 0px auto;
+}
+
+form button {
+	display: block;
+	margin: 0px auto;
+	font-size: 40px;
+}
+
+
+table {
+	width: 90%;
+	margin: 0px auto;
+}
+
+table th {
+	font-size: 20px;
+	text-align: center;
+}
+
+table td {
+	text-align: center;
+}

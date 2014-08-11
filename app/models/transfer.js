@@ -35,8 +35,8 @@ Transfer.prototype.create = function(transfer, cb){
 
 Transfer.findAll = function(query, cb){;
   Transfer.collection.find({$or: [{fromId: query.toString()}, {toId: query.toString()}]}).toArray(function(err, obj){
-    var transfers = obj.map(function(){
-      return changeProto(obj);
+    var transfers = obj.map(function(o){
+      return changeProto(o);
     });
     cb(transfers);
   });

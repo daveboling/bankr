@@ -1,0 +1,17 @@
+extends ../shared/template
+block top_nav
+	h2 Create New Account
+	form(method="post" action="/account/new")
+		label Name
+		input(type="text" name="name" placeholder="Bob Smith")
+		label Photo
+		input(type="text" name="photo" placeholder="bob.jpg")
+		label PIN #
+		input(type="number" name="pin" placeholder="1423" )
+		label Opening Deposit
+		input(type="number" name="balance" placeholder="1500")
+		label Account Type
+		select(name="accountType")
+			option(value="checking") Checking
+			option(value="savings") Savings
+		button Submit

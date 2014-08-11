@@ -14,11 +14,11 @@ module.exports = function(app, express){
   app.get('/', home.index);
 
   //Create an account
-  //app.get('/account/new', account.init);
-  //app.post('/account/new', account.create);
+  app.get('/account/new', account.init);
+  app.post('/account/new', account.create);
   
   //Display all accounts
-  //app.get('/account', account.index);
+  app.get('/account', account.index);
   
   //Display individual account
   //app.get('/account/:id/', account.overview);

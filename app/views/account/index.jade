@@ -1,0 +1,15 @@
+extends ../shared/template
+block top_nav
+	h2 All Accounts
+	table
+		tr
+			th Name
+			th Balance
+			th Type
+			th Opened
+		each account in accounts
+			tr
+				td: a(href="/account/#{account._id}")= account.name
+				td= account.balance
+				td= account.accountType
+				td #{moment(account.openDate).format('MM/DD/YYYY')}
