@@ -21,7 +21,7 @@ Object.defineProperty(Account, 'collection', {
 
 
 Account.prototype.newTransaction = function(trans, cb){
-  var fee = 0;
+  var fee;
   var amount = parseFloat(trans.amount);
   if(trans.type === 'withdraw'){
    this.balance -= amount;
@@ -76,7 +76,7 @@ Account.findById = function(query, cb){
   });
 };
 
-
+module.exports = Account; 
 
 // HELPER FUNCTIONS
 function changeProto(obj){
@@ -91,7 +91,7 @@ function sortDateAscending(arr){
 
 
 
-module.exports = Account; 
+
 
 
 

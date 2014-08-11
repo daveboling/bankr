@@ -2,13 +2,13 @@ extends ../shared/template
 block top_nav
 	h2 New Transfer
 	h3 #{account.name}'s #{account.accountType} account
+	h3 Current Balance: #{account.balance}
 	hr
-	form(method="post" action="/account/#{account._id}/transaction")
-		label Transaction Type
-		label Deposit
-		input(type="radio" name="type" value="deposit")
-		label Withdraw
-		input(type="radio" name="type" value="withdraw") 
+	form(method="post" action="/account/#{account._id}/transfer")
+		label From #{account.name}
+		select(name="toId")
+			each destination in destinations
+				option(value="#{account._id}")= destination.name
 		label PIN #
 		input(type="number" name="pin")
 		label Amount

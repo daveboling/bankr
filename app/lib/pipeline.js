@@ -28,8 +28,8 @@ module.exports = function(app, express){
   app.post('/account/:id/transaction', account.tranCreate);
   
   //New Transfer
-  //app.get('/account/:id/transfer', account.xferInit);
-  //app.port('/account/:id/transfer'. account.xferCreate);
+  app.get('/account/:id/transfer', account.xferInit);
+  app.post('/account/:id/transfer', account.xferCreate);
 
 
 

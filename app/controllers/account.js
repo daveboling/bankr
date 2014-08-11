@@ -45,3 +45,20 @@ exports.tranCreate = function(req, res){
 		});
 	});
 };
+
+exports.xferInit = function(req, res){
+	Account.all(function(destinations){
+		Account.findById(req.params.id, function(account){
+			res.render('account/xfer-init', {destinations: destinations, account: account});
+		});
+	});
+};
+
+exports.xferCreate = function(req, res){
+	Account.findById(req.params.id, function(account){
+		var transfer = new Transfer(req.body);
+			transfer.create(transfer, function(){
+				res.redirect('/account/' + req.params.id);
+			});
+	});
+};

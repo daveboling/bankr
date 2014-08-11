@@ -22,6 +22,7 @@ block top_nav
 				td #{moment(transaction.date).format('MM/DD/YYYY')}
 				td= transaction.type
 				td= transaction.amount
+				td= transaction.fee
 	h2 Transfers
 	table
 		tr
