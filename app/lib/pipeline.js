@@ -21,15 +21,15 @@ module.exports = function(app, express){
   app.get('/account', account.index);
   
   //Display individual account
-  //app.get('/account/:id/', account.overview);
+  app.get('/account/:id/', account.overview);
   
   //New Transaction
-  //app.get('/account/:id/transaction'. account.tran-init);
-  //app.post('account/:id/transaction', account.tran-create);
+  app.get('/account/:id/transaction', account.tranInit);
+  app.post('/account/:id/transaction', account.tranCreate);
   
   //New Transfer
-  //app.get('/account/:id/transfer', account.xfer-init);
-  //app.port('/account/:id/transfer'. account.xfer-create);
+  //app.get('/account/:id/transfer', account.xferInit);
+  //app.port('/account/:id/transfer'. account.xferCreate);
 
 
 

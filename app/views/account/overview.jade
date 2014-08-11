@@ -1,0 +1,41 @@
+extends ../shared/template
+block top_nav
+	h2 #{account.name}'s Account Page
+	.account.balance Current Balance: #{account.balance}
+	.account.type Account Type: #{account.accountType}
+	.account.open Open Date: #{moment(account.openDate).format('MM/DD/YYYY')}
+
+	.newTransaction: a(href="/account/#{account._id}/transaction") New Transaction
+	.newTransfer: a(href="/account/#{account._id}/transfer") New Transfer
+
+	h2 Transactions
+	table
+		tr
+			th ID
+			th Date
+			th Type
+			th Amount
+			th Fee
+		each transaction in account.transactions
+			tr
+				td= transaction.id
+				td #{moment(transaction.date).format('MM/DD/YYYY')}
+				td= transaction.type
+				td= transaction.amount
+	h2 Transfers
+	table
+		tr
+			th ID
+			th Date
+			th Form
+			th To
+			th Amount
+			th Fee
+		each transfer in transfers
+			tr
+				td= transfer.id + 1
+				td #{moment(transfer.date).format('MM/DD/YYYY')}
+				td= transfer.to
+				td= transfer.format
+				td= transfer.amount
+				td= transfer.fee

@@ -1,0 +1,18 @@
+extends ../shared/template
+block top_nav
+	h2 New Transaction
+	h3 #{account.name}'s #{account.accountType} account
+	hr
+	form(method="post" action="/account/#{account._id}/transaction")
+		label Transaction Type
+		label Deposit
+		input(type="radio" name="type" value="deposit")
+		label Withdraw
+		input(type="radio" name="type" value="withdraw") 
+		label PIN #
+		input(type="number" name="pin")
+		label Amount
+		input(type="number" name="amount")
+		input(type="hidden" name="id" value="#{account._id}")
+		button Submit
+

@@ -35,10 +35,11 @@ Account.prototype.newTransaction = function(trans, cb){
   }
 
   var transaction = {type: trans.type, amount: trans.amount, date: new Date(), id: this.transactions.length+1, fee: fee};
+  var balance = this.balance;
 
   this.transactions.push(transaction);
 
-  Account.collection.update({_id:this._id}, {$push:{transactions:transaction}}, cb);
+  Account.collection.update({_id:this._id}, {$push:{transactions:transaction}, $set:{balance:balance }}, cb);
 
 };
 

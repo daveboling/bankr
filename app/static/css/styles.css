@@ -1,3 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
+
+body, html {
+	text-align: center;
+	font-family: 'Lato', 'sans-serif';
+}
+
+
 nav {
 	margin: 0px auto;
 	width: 90%;
@@ -39,6 +48,8 @@ form {
 form input {
 	display: block;
 	margin: 0px auto;
+	width: 200px;
+	font-size: 1.5em;
 }
 
 form button {
@@ -47,17 +58,54 @@ form button {
 	font-size: 40px;
 }
 
+form label {
+	display: block;
+
+}
+
 
 table {
 	width: 90%;
 	margin: 0px auto;
+	margin-top: 50px;
 }
 
 table th {
 	font-size: 20px;
 	text-align: center;
+	border: 2px solid black;
 }
 
 table td {
 	text-align: center;
+}
+
+.account {
+	width: 200px;
+	border: 2px solid black;
+	margin: 0px auto;
+	text-align: center;
+}
+
+.balance {
+	display: inline-block;
+	margin: 0px auto;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+
+.newTransaction, .newTransfer {
+	font-size: 25px;
+	margin-top: 20px;
+}
+
+.newTransaction a, .newTransfer a {
+	color: rgba(155, 12, 155, 0.9);
+	text-decoration: none;
+}
+
+.newTransaction a:hover, .newTransfer a:hover;{
+	color: white;
+	background-color: black;
 }

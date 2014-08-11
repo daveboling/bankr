@@ -11,6 +11,7 @@ function Transfer(obj){
   this.fromId   = obj.fromId;
   this.toId     = obj.toId;
   this.amount   = parseInt(obj.amount);
+  this.date     = new Date();
 }
 
 
