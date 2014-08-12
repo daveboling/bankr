@@ -7,7 +7,7 @@ var _ = require('lodash');
 function Account(obj){
   this.name           = obj.name;
   this.color          = obj.color;
-  this.pin            = obj.pin;
+  this.pin            = parseInt(obj.pin);
   this.photo          = obj.photo;
   this.balance        = parseFloat(obj.balance);
   this.accountType    = obj.accountType;
@@ -21,6 +21,8 @@ Object.defineProperty(Account, 'collection', {
 
 
 Account.prototype.newTransaction = function(trans, cb){
+  if(this.pin !== trans.sourcePin) { cb(); return;  }
+
   var fee;
   var amount = parseFloat(trans.amount);
   if(trans.type === 'withdraw'){

@@ -8,9 +8,10 @@ block top_nav
 		label From #{account.name}
 		select(name="toId")
 			each destination in destinations
-				option(value="#{account._id}")= destination.name
+				option(value="#{destination._id}")= destination.name
 		label PIN #
 		input(type="number" name="pin")
 		label Amount
 		input(type="number" name="amount")
+		input(type="hidden" name="fromId" value="#{account._id}")
 		button Submit

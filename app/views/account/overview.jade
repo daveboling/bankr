@@ -28,15 +28,15 @@ block top_nav
 		tr
 			th ID
 			th Date
-			th Form
+			th From
 			th To
 			th Amount
 			th Fee
 		each transfer in transfers
 			tr
-				td= transfer.id + 1
+				td= transfer._id.toString().substring(0, 10)
 				td #{moment(transfer.date).format('MM/DD/YYYY')}
+				td= transfer.from
 				td= transfer.to
-				td= transfer.format
 				td= transfer.amount
-				td= transfer.fee
+				td #{(transfer.from === account.name) ? 25 : ''}

@@ -21,10 +21,10 @@ Object.defineProperty(Transfer, 'collection', {
 
 
 Transfer.prototype.create = function(transfer, cb){
+  if(transfer.pin !== transfer.sourcePin) { cb(); return;  }
     var destination   = Mongo.ObjectID(transfer.toId);
-    var source        = (typeof source === 'string') ? Mongo.ObjectID(transfer.fromId) : transfer.fromId;
-    var fee           = 25;
-    var newBalance = this.balance - (transfer.amount + fee);
+    var source        = Mongo.ObjectID(transfer.fromId);
+    var newBalance = transfer.balance - (transfer.amount + 25);
      Account.collection.update({_id:destination}, {$inc:{balance:transfer.amount}}, function(err, result){
         Account.collection.update({_id:source}, {$set:{balance: newBalance}}, function(err, result){
           Transfer.collection.save(transfer, function(err, ob){
